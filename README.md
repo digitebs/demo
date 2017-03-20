@@ -1,4 +1,4 @@
-###Stack use
+### Stack use
 - Spring Boot MVC
 - HSQLDB
 - JPA
@@ -14,19 +14,19 @@
 - Npm
 - Docker
 
-###Pre-requisite
+### Pre-requisite
 - Java 8
 
-###Build and Run
+### Build and Run
 ./mvnw spring-boot:run
 
 
-###Testing
+### Testing
 
 [http://localhost:8080](http://localhost:8080)
 
 
-###Quick Run using Docker
+### Quick Run using Docker
 
 
  docker run -p 8080:8080 -t digitebs/demo
