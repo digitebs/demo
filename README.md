@@ -18,8 +18,9 @@
 - Java 8
 
 ### Build and Run
+```
 ./mvnw spring-boot:run
-
+```
 
 ### Testing
 
