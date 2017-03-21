@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 /**
  * Created by johnlim on 17/3/17.
@@ -18,13 +20,15 @@ class UserController {
     private UserService userService;
 
     @RequestMapping(value="/user",method = RequestMethod.POST)
-    public String addUser( @RequestBody User user) {
-        userService.addUser(user);
-        return "User data saved";
+    public CompletionStage<String> addUser( @RequestBody User user) {
+        return userService.addUser(user)
+                .thenApply(v ->
+                    "User data saved"
+                );
     }
 
     @RequestMapping(value="/user",method = RequestMethod.GET)
-    public List<User> searchUser(@RequestParam("query") String text) {
+    public CompletionStage<List<User>> searchUser(@RequestParam("query") String text) {
         return userService.searchUser(text);
     }
 
